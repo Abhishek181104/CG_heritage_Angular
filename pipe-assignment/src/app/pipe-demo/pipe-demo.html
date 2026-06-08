@@ -1,0 +1,158 @@
+<div class="dashboard">
+
+  <header>
+    <h1>Angular Pipe Analytics Dashboard</h1>
+    <p>Built-in Pipes Assignment</p>
+  </header>
+
+  <!-- Question 1 -->
+  <section class="panel">
+    <h2>Question 1: Display todayDate using 4 different date formats</h2>
+
+    <p><strong>Short Date:</strong> {{ todayDate | date:'shortDate' }}</p>
+
+    <p><strong>Long Date:</strong> {{ todayDate | date:'longDate' }}</p>
+
+    <p><strong>Full Date:</strong> {{ todayDate | date:'fullDate' }}</p>
+
+    <p><strong>Custom Format:</strong> {{ todayDate | date:'dd/MM/yyyy HH:mm' }}</p>
+  </section>
+
+  <!-- Question 2 -->
+  <section class="panel">
+    <h2>Question 2: Format productPrice as INR</h2>
+
+    <div class="highlight">
+      {{ productPrice | currency:'INR':'symbol':'1.0-0' }}
+    </div>
+  </section>
+
+  <!-- Question 3 -->
+  <section class="panel">
+    <h2>Question 3: Format productPrice as USD, EUR and GBP</h2>
+
+    <p>USD : {{ productPrice | currency:'USD' }}</p>
+
+    <p>EUR : {{ productPrice | currency:'EUR' }}</p>
+
+    <p>GBP : {{ productPrice | currency:'GBP' }}</p>
+  </section>
+
+  <!-- Question 4 -->
+  <section class="panel">
+    <h2>Question 4: Transform productName</h2>
+
+    <p><strong>Title Case:</strong> {{ productName | titlecase }}</p>
+
+    <p><strong>Upper Case:</strong> {{ productName | uppercase }}</p>
+
+    <p><strong>Lower Case:</strong> {{ productName | lowercase }}</p>
+  </section>
+
+  <!-- Question 5 -->
+  <section class="panel">
+    <h2>Question 5: Display discount as Percentage</h2>
+
+    <div class="highlight">
+      {{ discount | percent:'1.2-2' }}
+    </div>
+  </section>
+
+  <!-- Question 6 -->
+  <section class="panel">
+    <h2>Question 6: Show first 3 items using Slice Pipe</h2>
+
+    <ul>
+      <li *ngFor="let item of orderItems | slice:0:3">
+        {{ item }}
+      </li>
+    </ul>
+  </section>
+
+  <!-- Question 7 -->
+  <section class="panel">
+    <h2>Question 7: Display stockData using Json Pipe</h2>
+
+    <pre>{{ stockData | json }}</pre>
+  </section>
+
+  <!-- Question 8 -->
+  <section class="panel">
+    <h2>Question 8: Date Pipe Chaining with Uppercase</h2>
+
+    <div class="highlight">
+      {{ todayDate | date:'fullDate' | uppercase }}
+    </div>
+  </section>
+
+  <header class="second-header">
+    <h1>Assignment 2 : Pipe Chaining Challenge</h1>
+  </header>
+
+  <!-- Question 9 -->
+  <section class="panel">
+    <h2>Question 9: Title → Titlecase → Slice</h2>
+
+    <p>
+      {{ blogPost.title.trim() | titlecase | slice:0:40 }}...
+    </p>
+  </section>
+
+  <!-- Question 10 -->
+  <section class="panel">
+    <h2>Question 10: Date → Uppercase</h2>
+
+    <p>
+      {{ blogPost.publishedAt | date:'EEEE, MMMM d, y' | uppercase }}
+    </p>
+  </section>
+
+  <!-- Question 11 -->
+  <section class="panel">
+    <h2>Question 11: Content → Slice → Lowercase</h2>
+
+    <p>
+      {{ blogPost.content | slice:0:80 | lowercase }}
+    </p>
+  </section>
+
+  <!-- Question 12 -->
+  <section class="panel">
+    <h2>Question 12: Tags → Slice → Uppercase</h2>
+
+    <ul>
+      <li *ngFor="let tag of blogPost.tags | slice:0:3">
+        {{ tag | uppercase }}
+      </li>
+    </ul>
+  </section>
+
+  <!-- Question 13 -->
+  <section class="panel">
+    <h2>Question 13: Complete Article Preview Card</h2>
+
+    <div class="article">
+
+      <h3>
+        {{ blogPost.title.trim() | titlecase | slice:0:40 }}...
+      </h3>
+
+      <p>
+        {{ blogPost.publishedAt | date:'EEEE, MMMM d, y' | uppercase }}
+      </p>
+
+      <p>
+        {{ blogPost.content | slice:0:80 | lowercase }}...
+      </p>
+
+      <div class="tag-box">
+        <span *ngFor="let tag of blogPost.tags | slice:0:3">
+          {{ tag | uppercase }}
+        </span>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
